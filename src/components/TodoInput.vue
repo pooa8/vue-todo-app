@@ -6,7 +6,13 @@
     </span>
 
     <Modal v-if="showModal" @close="showModal = false">
-      <h3 slot="header">custom header</h3>
+      <h3 slot="header">
+        Error 
+        <i class="closeModalBtn fas fa-times" @click="showModal = false"></i>
+      </h3>
+      <div slot="body">
+        값을 입력해주세요.
+      </div>
     </Modal>
   </div>
 </template>
@@ -27,7 +33,7 @@ export default {
         this.$emit('addTodoItem', this.newTodoItem);
         this.clearInput();
       } else {
-        
+        this.showModal = !this.showModal;
       }
     },
     clearInput: function() {
@@ -64,5 +70,8 @@ input:focus {
 .addBtn {
   color: white;
   vertical-align: middle;
+}
+.closeModalBtn {
+  color: #42b983;
 }
 </style>
